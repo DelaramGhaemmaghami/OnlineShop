@@ -6,6 +6,8 @@ import Customer
 
 import main_functions
 
+import Customer_functions
+
 while True:
     user_action = Menu.Menu.main_menu()
 
@@ -88,11 +90,11 @@ while True:
                         elif customer_option == "2":
                             Customer.Customer.view_existed_stores()
 
-                            desired_store_name = Customer.wanna_buy()
+                            desired_store_name = Customer_functions.wanna_buy()
 
                             if desired_store_name:
 
-                                if Customer.is_blocked(desired_store_name, user_name):
+                                if Customer_functions.is_blocked(desired_store_name, user_name):
                                     continue
 
                                 search_or_all = input("""Do you wanna search a specific good or you wanna see all """
@@ -135,7 +137,7 @@ while True:
 
                             if desired_store_name:
 
-                                if Customer.wanna_buy(desired_store_name):
+                                if Customer_functions.wanna_buy(desired_store_name):
                                     search_or_all = input(
                                         """Do you wanna search a specific good or you wanna see all """
                                         """the goods?(s: search, a:all): """)
