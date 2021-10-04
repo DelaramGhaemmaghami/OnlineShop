@@ -66,9 +66,7 @@ class Menu:
 
     @staticmethod
     def customer_menu():
-        options = ["1- Sign in", "2- View previous invoices", "3- View list of stores", "4- Store Search",
-                   "5- Select a store", "6- View the list of goods", "7- Product search", "8- Select items",
-                   "9- Show pre-invoice", "10- Confirm purchase or edit it", "11- Logout\n"]
+        options = ["1- View previous invoices", "2- View list of stores", "3- Store Search", "4- Logout\n"]
 
         print("\n" + "\u2500" * 40 + " << MENU >> " + "\u2500" * 40 + "\n")
 
@@ -82,9 +80,9 @@ class Menu:
         while True:
             user_option = input("Please enter the number of your CHOICE: ")
 
-            if user_option.isnumeric() and int(user_option) in range(1, 12):
+            if user_option.isnumeric() and int(user_option) in range(1, 5):
                 return user_option
 
             else:
-                print("\nINVALID INPUT! Please choose a number between 1 to 10 or press ENTER to exit.")
+                print("\nINVALID INPUT! Please choose a number between 1 to 5 or press ENTER to exit.")
                 continue
