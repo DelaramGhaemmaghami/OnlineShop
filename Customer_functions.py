@@ -1,5 +1,6 @@
 import hashlib
 import csv
+import os
 
 
 def password_hashing(password):
@@ -50,14 +51,18 @@ def get_check_number():
 
 
 def is_blocked(store_name, user_name):
-    block_file_reader = list(csv.reader(open(f"{store_name}_blocked_users.csv")))
+    if os.path.isfile(f"{store_name}_blocked_users.csv"):
+        block_file_reader = list(csv.reader(open(f"{store_name}_blocked_users.csv")))
 
-    flag = False
+        flag = False
 
-    for i in range(len(block_file_reader)):
-        if block_file_reader[i][1] == user_name:
-            print(f"ATTENTION! You can't buy from {store_name}, because you've been blocked.")
-            return True
+        for i in range(len(block_file_reader)):
+            if block_file_reader[i][1] == user_name:
+                print(f"ATTENTION! You can't buy from {store_name}, because you've been blocked.")
+                return True
 
-    if not flag:
-        return False
+        if not flag:
+            return False
+
+    else:
+        return
